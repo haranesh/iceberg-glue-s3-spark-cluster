@@ -8,8 +8,8 @@ services:
       - "8080:8080"
     environment:
       # Replace with your actual AWS credentials or remove if using IAM roles
-      AWS_ACCESS_KEY_ID: AKIAYKFQQ2PS56IYDUMB
-      AWS_SECRET_ACCESS_KEY: o1Rlybcrni22bxqVWlBtPe8S6gdfsnWJOlZrleZR
+      AWS_ACCESS_KEY_ID: # key here
+      AWS_SECRET_ACCESS_KEY: # access key here
       AWS_REGION: ap-south-1 # e.g., us-east-1
     volumes:
       - ./trino/etc:/etc/trino
