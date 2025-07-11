@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  trino-coordinator:
+    image: trinodb/trino:latest # Or a specific version like trinodb/trino:475
+    container_name: trino-coordinator
+    ports:
+      - "8080:8080"
+    environment:
+      # Replace with your actual AWS credentials or remove if using IAM roles
+      AWS_ACCESS_KEY_ID: AKIAYKFQQ2PS56IYDUMB
+      AWS_SECRET_ACCESS_KEY: o1Rlybcrni22bxqVWlBtPe8S6gdfsnWJOlZrleZR
+      AWS_REGION: ap-south-1 # e.g., us-east-1
+    volumes:
+      - ./trino/etc:/etc/trino
+    # Healthcheck (optional but recommended for production)
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/v1/status || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - trino-net
+
+networks:
+  trino-net:
+    driver: bridge

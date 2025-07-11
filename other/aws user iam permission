@@ -1,0 +1,49 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"glue:CreateDatabase",
+				"glue:GetDatabase",
+				"glue:UpdateDatabase",
+				"glue:DeleteDatabase",
+				"glue:CreateTable",
+				"glue:GetTable",
+				"glue:UpdateTable",
+				"glue:DeleteTable",
+				"glue:BatchCreatePartition",
+				"glue:CreatePartition",
+				"glue:GetPartition",
+				"glue:GetPartitions",
+				"glue:BatchGetPartition",
+				"glue:UpdatePartition",
+				"glue:DeletePartition"
+			],
+			"Resource": [
+				"arn:aws:glue:ap-south-1:571600851941:catalog/*",
+				"arn:aws:glue:ap-south-1:571600851941:database/*",
+				"arn:aws:glue:ap-south-1:571600851941:table/*",
+				"*"
+			]
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:DeleteObject",
+				"s3:ListBucket",
+				"s3:GetBucketLocation",
+				"s3:AbortMultipartUpload",
+				"s3:ListMultipartUploadParts",
+				"s3:ListBucketMultipartUploads"
+			],
+			"Resource": [
+				"arn:aws:s3:::projectx-s3",
+				"arn:aws:s3:::projectx-s3/*",
+				"*"
+			]
+		}
+	]
+}
